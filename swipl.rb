@@ -6,7 +6,7 @@ class Swipl < Formula
 
   bottle do
     root_url "https://raw.githubusercontent.com/likelion/homebrew-tap/master/bottles"
-    sha256 "60aba7fe5a06b90cc01756474f69082421684cbad43dc1aa755c0e0643808864" => :mojave
+    sha256 "bf1476d09141c8a148ba4a17fd50f8ab705608bfc49bc55796e012a54bcbbb8b" => :catalina
   end
 
   head do
