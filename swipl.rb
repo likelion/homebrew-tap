@@ -1,13 +1,8 @@
 class Swipl < Formula
   desc "ISO/Edinburgh-style Prolog interpreter (devel version)"
   homepage "http://www.swi-prolog.org/"
-  url "http://www.swi-prolog.org/download/devel/src/swipl-8.3.14.tar.gz"
-  sha256 "eeffa3f209ddf7e784ba5d02cbb1c8078bfc027c8a6802a460086dad29d9d298"
-
-  bottle do
-    root_url "https://raw.githubusercontent.com/likelion/homebrew-tap/master/bottles"
-    sha256 "bf1476d09141c8a148ba4a17fd50f8ab705608bfc49bc55796e012a54bcbbb8b" => :catalina
-  end
+  url "http://www.swi-prolog.org/download/devel/src/swipl-8.3.15.tar.gz"
+  sha256 "8fd601d8913565d9b38f45b1708e498c0bb833ecba6865383915bad3c2575c95"
 
   head do
     url "https://github.com/SWI-Prolog/swipl-devel.git"
