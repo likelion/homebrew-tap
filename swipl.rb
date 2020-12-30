@@ -3,11 +3,8 @@ class Swipl < Formula
   homepage "http://www.swi-prolog.org/"
   url "http://www.swi-prolog.org/download/devel/src/swipl-8.3.16.tar.gz"
   sha256 "ded2e419b22822d29da7732b3def78c95634c233652efebfa8cf5100ee188c9e"
-
-  head do
-    url "https://github.com/SWI-Prolog/swipl-devel.git"
-    depends_on "cmake" => :build
-  end
+  license "BSD-2-Clause"
+  head "https://github.com/SWI-Prolog/swipl-devel.git"
 
   livecheck do
     url "https://www.swi-prolog.org/download/devel/src"
