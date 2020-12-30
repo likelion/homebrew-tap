@@ -1,30 +1,43 @@
 class Swipl < Formula
   desc "ISO/Edinburgh-style Prolog interpreter (devel version)"
   homepage "http://www.swi-prolog.org/"
-  url "http://www.swi-prolog.org/download/devel/src/swipl-8.3.15.tar.gz"
-  sha256 "8fd601d8913565d9b38f45b1708e498c0bb833ecba6865383915bad3c2575c95"
+  url "http://www.swi-prolog.org/download/devel/src/swipl-8.3.16.tar.gz"
+  sha256 "ded2e419b22822d29da7732b3def78c95634c233652efebfa8cf5100ee188c9e"
 
   head do
     url "https://github.com/SWI-Prolog/swipl-devel.git"
     depends_on "cmake" => :build
   end
 
-  depends_on "ossp-uuid"
-  depends_on "readline"
-  depends_on "gmp"
-  depends_on "libarchive"
-  depends_on "openssl"
-  depends_on "pcre"
-  depends_on "berkeley-db"=> :optional
-  depends_on "unixodbc" => :optional
-  depends_on :x11
-  depends_on "jpeg"
+  livecheck do
+    url "https://www.swi-prolog.org/download/devel/src"
+    regex(/href=.*?swipl[._-]v?(\d+\.\d+\.\d+)\.t/i)
+  end
+
   depends_on "cmake" => :build
- 
+  depends_on "pkg-config" => :build
+  depends_on "berkeley-db" => :optional
+  depends_on "gmp"
+  depends_on "jpeg"
+  depends_on "libarchive"
+  depends_on "libyaml"
+  depends_on "openssl@1.1"
+  depends_on "pcre"
+  depends_on "readline"
+  depends_on "unixodbc" => :optional
+
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make"
-    system "make", "install"
+    mkdir "build" do
+      system "cmake", "..", *std_cmake_args,
+                      "-DSWIPL_PACKAGES_JAVA=OFF",
+                      "-DSWIPL_PACKAGES_X=OFF",
+                      "-DCMAKE_INSTALL_PREFIX=#{libexec}",
+                      "-DCMAKE_C_COMPILER=/usr/bin/clang",
+                      "-DCMAKE_CXX_COMPILER=/usr/bin/clang++"
+      system "make", "install"
+    end
+
+    bin.write_exec_script Dir["#{libexec}/bin/*"]
   end
   
   test do
