@@ -12,6 +12,7 @@ class Swipl < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "ossp-uuid"
   depends_on "pkg-config" => :build
   depends_on "berkeley-db" => :optional
   depends_on "gmp"
