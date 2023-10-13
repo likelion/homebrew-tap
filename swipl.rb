@@ -1,8 +1,8 @@
 class Swipl < Formula
   desc "ISO/Edinburgh-style Prolog interpreter (devel version)"
   homepage "http://www.swi-prolog.org/"
-  url "http://www.swi-prolog.org/download/devel/src/swipl-9.1.15.tar.gz"
-  sha256 "c8dc901bfe2a10990473b2f2b79d92332ebc23b8b6f79107177258b708a57595"
+  url "http://www.swi-prolog.org/download/devel/src/swipl-9.1.16.tar.gz"
+  sha256 "02dce87dbecb61d16880536d3d56abaed63624bc81b5b06d1b706e68b662b1be"
   license "BSD-2-Clause"
   head "https://github.com/SWI-Prolog/swipl-devel.git"
 
